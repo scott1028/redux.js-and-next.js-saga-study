@@ -9,7 +9,8 @@ const redux = require('redux');
 // Define Actions factory
 function createAction(type){
     return {
-        type: type
+        type: type,
+        data: null,
     }
 };
 
@@ -36,6 +37,7 @@ let unsubscribe = store.subscribe(function(){
 });
 
 // Trigger!!
+// You can do ajax first and do createAction in callback block.
 store.dispatch(createAction('action-1'));
 store.dispatch(createAction('action-2'));
 store.dispatch(createAction('action-3'));
