@@ -38,6 +38,8 @@ let unsubscribe = store.subscribe(function(){
 
 // Trigger!!
 // You can do ajax first and do createAction in callback block.
+// ***All flow work unidirectional.***
+//  => [The dispatcher creates action.] -> [The Reducer of store creates next state.] -> [The subscriber invokes callback.]
 store.dispatch(createAction('action-1'));
 store.dispatch(createAction('action-2'));
 store.dispatch(createAction('action-3'));
