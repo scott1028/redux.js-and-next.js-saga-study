@@ -7,7 +7,7 @@ const redux = require('redux');
 
 
 // Define Actions factory
-// In advance topic, you can use `Redux Thunk middleware` to create a asynchronous action by action factory for async actions.
+// In advanced topic, you can use `Redux Thunk middleware` to create a asynchronous action by action factory for async actions.
 function createAction(type){
     return {
         type: type,
