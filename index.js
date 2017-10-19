@@ -6,44 +6,57 @@
 const redux = require('redux');
 
 
+// Define Action factory and Actions
+const ACTION_1 = 'action-1';
+const ACTION_2 = 'action-2';
+const ACTION_3 = 'action-3';
+
+
 // Define Actions factory
 // In advanced topic, you can use `Redux Thunk middleware` to create a asynchronous action by action factory for async actions.
-function createAction(type){
+function createAction(type, data = null){
     return {
         type: type,
-        data: null,
+        data: data,
     }
 };
 
+
 // Define Reducer
 function myReducer(state = {}, action){
-    if(action.type === 'action-1')
+    if(action.type === ACTION_1)
         return Object.assign({}, state, {
-            action: '1'
+            action: action.type,
+            data: action.data
         });
-    if(action.type === 'action-2')
+    if(action.type === ACTION_2)
         return Object.assign({}, state, {
-            action: '2'
+            action: action.type,
+            data: action.data
         });
     return state;
-}
+};
+
 
 // Create Store by Reducer
 let store = redux.createStore(myReducer);
 console.log(`Init state of store:`, store.getState())
+
 
 // Define Callback Action
 let unsubscribe = store.subscribe(function(){
     console.log(store.getState());
 });
 
+
 // Trigger!!
 // You can do ajax first and do createAction in callback block.
 // ***All flow work unidirectional.***
 //  => [The dispatcher creates a action at the moment.] -> [The Reducer of store creates next state.] -> [The subscriber invokes callback.]
-store.dispatch(createAction('action-1'));
-store.dispatch(createAction('action-2'));
-store.dispatch(createAction('action-3'));
+store.dispatch(createAction(ACTION_1, '123'));
+store.dispatch(createAction(ACTION_2));
+store.dispatch(createAction(ACTION_3));
+
 
 // release subscribe
 unsubscribe();
