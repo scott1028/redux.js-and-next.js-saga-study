@@ -7,6 +7,7 @@ const redux = require('redux');
 
 
 // Define Actions factory
+// In advance topic, you can use `Redux Thunk middleware` to create a asynchronous action by action factory for async actions.
 function createAction(type){
     return {
         type: type,
@@ -32,7 +33,6 @@ let store = redux.createStore(myReducer);
 console.log(`Init state of store:`, store.getState())
 
 // Define Callback Action
-// Or you can use `Redux Thunk middleware` to create a asynchronous action by action factory.
 let unsubscribe = store.subscribe(function(){
     console.log(store.getState());
 });
