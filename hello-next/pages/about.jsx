@@ -26,6 +26,7 @@ class About extends React.Component {
                 <Link href="/" prefetch>
                     <a>home</a>
                 </Link>
+                <hr />
                 <button onClick={self.props.INCREMENT}>Add</button>
                 <button onClick={self.props.DECREMENT}>Sub</button>
                 <button onClick={self.props.RESET}>Reset</button>

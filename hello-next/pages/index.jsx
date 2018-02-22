@@ -11,9 +11,18 @@ const Index = (props) => (
         <Navbar />
         <p>Hello Next.js = { props.value }</p>
         <Link href="/about" prefetch>
-            <a>here</a>
+            <a>about</a>
         </Link>
+        <hr />
+        <button onClick={props.DECREMENT}>Sub</button>
     </div>
 )
 
-export default withRedux(initStore)(connect(state => state)(Index))
+const mapDispatchToProps = function(dispatch){
+    // same effect when you use bindActionCreator
+    return {
+        DECREMENT: () => dispatch({type: 'DECREMENT'}),
+    }
+}
+
+export default withRedux(initStore, null, mapDispatchToProps)(connect(state => state)(Index))
