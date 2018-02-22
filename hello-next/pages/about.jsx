@@ -66,4 +66,5 @@ export default withRedux(initStore, null, mapDispatchToProps)(connect(state => s
 // ref: https://github.com/reactjs/react-redux/blob/master/docs/api.md#inject-dispatch-and-every-field-in-the-global-state
 //
 // ref: https://redux.js.org/api-reference/bindactioncreators
-
+// ref: https://github.com/zeit/next.js#with-url-object
+// ref: https://github.com/zeit/next.js#custom-server-and-routing
