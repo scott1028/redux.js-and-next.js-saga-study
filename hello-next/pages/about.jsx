@@ -9,6 +9,7 @@ import { initStore } from '../stores/store'
 
 class About extends React.Component {
     static getInitialProps({ store, isServer }){
+        console.log('>> is server render?', [isServer]);
         store.dispatch({
             type: 'INIT'
         });
