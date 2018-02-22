@@ -56,3 +56,6 @@ export default withRedux(initStore, null, mapDispatchToProps)(connect(state => s
 // 
 // connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
 // ref: https://github.com/reactjs/react-redux/blob/master/docs/api.md#inject-dispatch-and-every-field-in-the-global-state
+//
+// ref: https://redux.js.org/api-reference/bindactioncreators
+
