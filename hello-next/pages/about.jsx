@@ -43,8 +43,8 @@ const mapDispatchToProps = function(dispatch){
     }
 }
 
-var c=bindActionCreators;
-debugger;
+// var c=bindActionCreators;
+// debugger;
 
 export default withRedux(initStore, null, mapDispatchToProps)(connect(state => state)(About))
 
