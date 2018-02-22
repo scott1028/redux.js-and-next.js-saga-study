@@ -68,3 +68,4 @@ export default withRedux(initStore, null, mapDispatchToProps)(connect(state => s
 // ref: https://redux.js.org/api-reference/bindactioncreators
 // ref: https://github.com/zeit/next.js#with-url-object
 // ref: https://github.com/zeit/next.js#custom-server-and-routing
+// ref: https://github.com/zeit/next.js/tree/canary/examples/with-next-routes
