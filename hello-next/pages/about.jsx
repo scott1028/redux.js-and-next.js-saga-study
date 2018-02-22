@@ -48,6 +48,7 @@ const mapDispatchToProps = function(dispatch){
     return bindActionCreators({
         INCREMENT: () => { return { type: 'INCREMENT' } },
         DECREMENT: () => { return { type: 'DECREMENT' } },
+        RESET: () => { return { type: 'RESET' } },
     }, dispatch);
 }
 
