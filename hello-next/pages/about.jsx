@@ -36,12 +36,19 @@ class About extends React.Component {
 }
 
 const mapDispatchToProps = function(dispatch){
-    // same effect when you use bindActionCreator
-    return {
-        INCREMENT: () => dispatch({type: 'INCREMENT'}),
-        DECREMENT: () => dispatch({type: 'DECREMENT'}),
-        RESET: () => dispatch({type: 'RESET'}),
-    }
+    // Option-1: same effect when you use bindActionCreator
+    // return {
+    //     INCREMENT: () => dispatch({type: 'INCREMENT'}),
+    //     DECREMENT: () => dispatch({type: 'DECREMENT'}),
+    //     RESET: () => dispatch({type: 'RESET'}),
+    // }
+
+    // Option-2
+    // using bindActionCreator to create it
+    return bindActionCreators({
+        INCREMENT: () => { return { type: 'INCREMENT' } },
+        DECREMENT: () => { return { type: 'DECREMENT' } },
+    }, dispatch);
 }
 
 // var c=bindActionCreators;
