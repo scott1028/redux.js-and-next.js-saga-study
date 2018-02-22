@@ -35,12 +35,16 @@ class About extends React.Component {
 }
 
 const mapDispatchToProps = function(dispatch){
+    // same effect when you use bindActionCreator
     return {
         INCREMENT: () => dispatch({type: 'INCREMENT'}),
         DECREMENT: () => dispatch({type: 'DECREMENT'}),
         RESET: () => dispatch({type: 'RESET'}),
     }
 }
+
+var c=bindActionCreators;
+debugger;
 
 export default withRedux(initStore, null, mapDispatchToProps)(connect(state => state)(About))
 
