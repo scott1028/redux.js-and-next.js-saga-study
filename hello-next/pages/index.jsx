@@ -25,4 +25,13 @@ const mapDispatchToProps = function(dispatch){
     }
 }
 
-export default withRedux(initStore, null, mapDispatchToProps)(connect(state => state)(Index))
+const mapStateToProps = function(state){
+    // ref: https://github.com/reactjs/react-redux/blob/master/docs/api.md#inject-dispatch-and-every-field-in-the-global-state
+    // choose required fields to optimize your state to props for best performation.
+    // if return all fields of state from your store, you will get bad performance.
+    // example:
+    //   return { value: state.value }
+    return { value: state.value }
+}
+
+export default withRedux(initStore, null, mapDispatchToProps)(connect(mapStateToProps)(Index))
