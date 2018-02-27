@@ -3,9 +3,9 @@
 
 // for NodeJS
 import React from 'react';
-import {render} from 'react-dom';
+import { render } from 'react-dom';
 import { createStore, bindActionCreators } from 'redux';
-import { Provider ,connect} from 'react-redux';
+import { Provider ,connect } from 'react-redux';
 
 const Redux = {
     createStore,
@@ -69,10 +69,10 @@ const Counter = (props) => (
         props.value.todos.map((obj, idx) => (
             <div key={idx}>
             <label>{idx}</label>
-          &nbsp;
-          <input value={obj} onChange={props.onChange(idx)} style={{width: 350}}/>
-          &nbsp;
-          <button onClick={props.onRemove(idx)}>Del</button>
+            &nbsp;
+            <input value={obj} onChange={props.onChange(idx)} style={{width: 350}}/>
+            &nbsp;
+            <button onClick={props.onRemove(idx)}>Del</button>
         </div>
         ))
     }
@@ -82,14 +82,14 @@ const Counter = (props) => (
 
 var App = (props) => {
     return (
-    <Counter
-      value={props.value}
-      onIncrement={() => props.onIncrement()}
-      onDecrement={() => props.onDecrement()}
-      onChange={(index) => (e) => props.onChange(index, e.target.value)}
-      onRemove={(index) => () => props.onRemove(index)}
-    />
-  )
+        <Counter
+            value={props.value}
+            onIncrement={() => props.onIncrement()}
+            onDecrement={() => props.onDecrement()}
+            onChange={(index) => (e) => props.onChange(index, e.target.value)}
+            onRemove={(index) => () => props.onRemove(index)}
+        />
+    )
 }
 
 var mapStoreStateToProps = function(state){
@@ -139,9 +139,9 @@ const root = document.getElementById('root')
 
 const renderByRedux = () => ReactDOM.render(
     <Provider store={store}>
-    <App />
-  </Provider>,
-  root
+        <App />
+    </Provider>,
+    root
 )
 
 renderByRedux()
