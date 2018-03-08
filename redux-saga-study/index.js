@@ -2,6 +2,11 @@
 //
 // 簡單介紹 Redux & Redux-Saga 的運作流程原理
 // >> Saga is a redux middleware, it works like reducer and be charged in listening action and invoking callback of action.
+// >> 可再搭配 redux-saga-thunk 讓 Action 被 Dispatch 之後 Return 一個 Promise 把 Saga Function 中 Trigger 的 Action 相關資訊用
+// >> Promise 傳回給調用 dispatch 的程式碼處!!!
+// >>   store.dispatch(action).then((payload) => { ... });
+// >>
+// >> Ref: https://github.com/diegohaz/redux-saga-thunk
 //
 
 
