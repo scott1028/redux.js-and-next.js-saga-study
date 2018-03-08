@@ -1,6 +1,7 @@
 'use strict';
 //
 // 簡單介紹 Redux & Redux-Saga 的運作流程原理
+// >> Saga is a redux middleware, it works like reducer and be charged in listening action and invoking callback of action.
 //
 
 
