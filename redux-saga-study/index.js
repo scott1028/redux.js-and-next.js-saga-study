@@ -64,6 +64,7 @@ function* rootSaga() {
         yield sagaFunc.put(createAction(ACTION_2, `triggered-from-saga-123_${(new Date()).getTime()}`))
     })
 
+    // [Define to listen another action here]
     // yield sagaFunc.takeEvery(ACTION_1, function* (actionObj) {
     //     // both saga and reducer catch this action
     //     console.log(`[takeEvery start]`, actionObj);
