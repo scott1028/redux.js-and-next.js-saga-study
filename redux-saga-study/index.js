@@ -33,12 +33,13 @@ function* rootSaga() {
         // get from store.dispatch ACTION_SAGA
         console.log(`[takeEvery start]`, actionObj);
 
-        // a async trick, wait 1 seconds
-        yield saga.delay(1000)
+        // a async trick, wait 1.5 seconds
+        yield saga.delay(1500)
         
         // test normal function
         var result1 = yield sagaFunc.call(function (val) { return val + 10 }, 100)
-        console.log(result1);
+        console.log(result1, (new Date()).getTime());
+        yield saga.delay(1500)
 
         // test normal function return a promise
         var result2 = yield sagaFunc.call(function (val) {
@@ -48,14 +49,16 @@ function* rootSaga() {
                 return data + 50
             })
         }, 100)
-        console.log(result2);
+        console.log(result2, (new Date()).getTime());
+        yield saga.delay(1500)
 
         // test generator function
         var result3 = yield sagaFunc.call(function* (val) {
             var result = yield val + 10;
             return result;
         }, -100)
-        console.log(result3);
+        console.log(result3, (new Date()).getTime());
+        yield saga.delay(1500)
 
         // equals store.dispatch({ type: ACTION_2, data: 'triggered-from-saga-123' })
         yield sagaFunc.put(createAction(ACTION_2, `triggered-from-saga-123_${(new Date()).getTime()}`))
@@ -133,6 +136,4 @@ store.dispatch(createAction(ACTION_SAGA, `hi-saga-${(new Date()).getTime()}`));
 
 
 // release subscribe & wait saga async function finish due to testcase
-setTimeout(function(){
-    unsubscribe();
-}, 3000)
+unsubscribe();
