@@ -29,7 +29,12 @@ function* rootSaga() {
     // or
     //
     // only saga catch this action
-    yield sagaFunc.takeEvery(ACTION_SAGA, function* (actionObj){
+    yield sagaFunc.takeEvery(ACTION_SAGA, function* (arg1, arg2, arg3, actionObj){
+        // test saga func passed parameters
+        // Ref: https://redux-saga.js.org/docs/api/#takeeverypattern-saga-args
+        console.log('[test saga func passed parameters]', [arguments]);
+        console.log("\r\n", arg1, arg2, arg3, actionObj, "\r\n");
+
         // get from store.dispatch ACTION_SAGA
         console.log(`[takeEvery start]`, actionObj);
 
@@ -59,7 +64,7 @@ function* rootSaga() {
 
         // equals store.dispatch({ type: ACTION_2, data: 'triggered-from-saga-123' })
         yield sagaFunc.put(createAction(ACTION_2, `triggered-from-saga-123_${(new Date()).getTime()}`))
-    })
+    }, { arg: 1 }, { arg: 2 }, { arg: 3})
 
     // yield sagaFunc.takeEvery(ACTION_1, function* (actionObj) {
     //     // both saga and reducer catch this action
