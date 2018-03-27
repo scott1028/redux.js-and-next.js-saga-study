@@ -6,18 +6,24 @@
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "ndb": "^1.0.24",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
-    "webpack": "^4.0.1"
+    "webpack": "^4.0.1",
+    "webpack-dev-server": "^3.1.6"
   },
   "scripts": {
-    "build": "npx webpack"
+    "build": "npx webpack",
+    "test": "npx node ./node_modules/.bin/jest src/app.integration.test.js --coverage",
+    "start": "webpack-dev-server -d",
+    "ndb": "ndb ."
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -33,6 +39,8 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/src/jest.enzyme.config.js",
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }

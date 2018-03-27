@@ -145,7 +145,7 @@ class App extends React.Component {
 }
 */
 
-App = ReactRedux.connect(mapStoreStateToProps, mapDispatchToProps)(App)
+const $App = ReactRedux.connect(mapStoreStateToProps, mapDispatchToProps)(App)
 
 // store created from reducer
 const store = Redux.createStore(myReducer)
@@ -157,7 +157,7 @@ if(root !== null) {  // make a test if require by browser
     // var Provider = ReactRedux.Provider;
     const renderByRedux = () => ReactDOM.render(
         <Provider store={store}>
-            <App />
+            <$App />
         </Provider>,
         root
     )
@@ -168,5 +168,6 @@ export {
     myReducer,
     mapDispatchToProps,
     mapStoreStateToProps,
-    App
+    App,
+    $App
 }
